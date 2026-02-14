@@ -4,7 +4,7 @@ import random
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-# TOKEN Render environmentdan olinadi
+# TOKEN Render environmentdoan olinadi
 TOKEN = os.getenv(8173974361:AAEmoPlZRP_OYQqNxpGN_NUvo_EtsKdabic)
 
 # 40 ta savol difficulty (-2 dan +2 gacha)
