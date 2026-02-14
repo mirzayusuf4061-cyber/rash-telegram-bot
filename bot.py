@@ -5,7 +5,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # TOKEN Render environmentdoan olinadi
-TOKEN = os.getenv(8173974361:AAEmoPlZRP_OYQqNxpGN_NUvo_EtsKdabic)
+TOKEN = os.getenv(8173974361:AAER7WriV47EKKl5JjKaHRBflLdTR18Cv20)
 
 # 40 ta savol difficulty (-2 dan +2 gacha)
 difficulties = [random.uniform(-2, 2) for _ in range(40)]
