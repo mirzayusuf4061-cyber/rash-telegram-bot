@@ -1,14 +1,14 @@
+import os
 import random
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from rasch import estimate_theta, scale_score
 from database import init_db, save_student, get_ranking
 
-TOKEN = "8173974361:AAEmoPlZRP_OYQqNxpGN_NUvo_EtsKdabic"
+TOKEN = os.getenv("8173974361:AAEmoPlZRP_OYQqNxpGN_NUvo_EtsKdabic")
 
 init_db()
 
-# 40 savol difficulty
 difficulties = [random.uniform(-2, 2) for _ in range(40)]
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -31,9 +31,7 @@ async def check(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text("35 yopiq + 5 ochiq kerak.")
             return
 
-        # ochiqni 0-1 oralig‘iga normallashtirish
         open_norm = [x/2 for x in open_scores]
-
         responses = closed + open_norm
 
         theta = estimate_theta(responses, difficulties)
@@ -47,7 +45,7 @@ async def check(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"Score: {score}"
         )
 
-    except:
+    except Exception as e:
         await update.message.reply_text("Format xato.")
 
 async def ranking(update: Update, context: ContextTypes.DEFAULT_TYPE):
